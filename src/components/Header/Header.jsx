@@ -2,9 +2,9 @@ import React from "react";
 
 const Header = () => {
     return (
-        <div>
+        <header>
             <p>Spotify App</p>
-        </div>
+        </header>
     );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Favorite = () => {
-    return <div>Favorite</div>;
+    return <div className="content">Favorite</div>;
 };
 
 export default Favorite;

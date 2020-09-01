@@ -6,35 +6,38 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Favorite from "../Favorite/Favorite";
 import Category from "../Category/Category";
+import "./App.css";
 
 function App() {
     return (
         <Router>
-            <Header />
-            <Navbar />
+            <div className="wrapper">
+                <Header />
+                <Navbar />
 
-            <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route path="/favorite">
-                    <Favorite />
-                </Route>
-                <Route path="/artist">
-                    <Category name={"artist"} />
-                </Route>
-                <Route path="/album">
-                    <Category name={"album"} />
-                </Route>
-                <Route path="/track">
-                    <Category name={"track"} />
-                </Route>
-                <Route path="/playlist">
-                    <Category name={"playlist"} />
-                </Route>
-            </Switch>
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route path="/favorite">
+                        <Favorite />
+                    </Route>
+                    <Route path="/artist">
+                        <Category name={"artist"} />
+                    </Route>
+                    <Route path="/album">
+                        <Category name={"album"} />
+                    </Route>
+                    <Route path="/track">
+                        <Category name={"track"} />
+                    </Route>
+                    <Route path="/playlist">
+                        <Category name={"playlist"} />
+                    </Route>
+                </Switch>
 
-            <Footer />
+                <Footer />
+            </div>
         </Router>
     );
 }
