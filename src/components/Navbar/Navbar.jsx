@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <nav class="ui secondary vertical pointing menu">
+        <div id="sidebar" class="ui secondary vertical pointing menu">
             <Link to="/" class="item">
                 New releases
             </Link>
@@ -22,7 +22,7 @@ const Navbar = () => {
             <Link to="/favorite" class="item">
                 Favorites
             </Link>
-        </nav>
+        </div>
     );
 };
 
