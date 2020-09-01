@@ -1,27 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
         <nav class="ui secondary vertical pointing menu">
-            <Link to="/" class="item">
+            <NavLink activeClassName="active" exact to="/" className="item">
                 New releases
-            </Link>
-            <Link to="/artist" class="active item">
+            </NavLink>
+            <NavLink activeClassName="active" to="/artist" className="item">
                 Artist
-            </Link>
-            <Link to="/track" class="item">
+            </NavLink>
+            <NavLink activeClassName="active" to="/track" className="item">
                 Track
-            </Link>
-            <Link to="/album" class="item">
+            </NavLink>
+            <NavLink activeClassName="active" to="/album" className="item">
                 Album
-            </Link>
-            <Link to="/playlist" class="item">
+            </NavLink>
+            <NavLink activeClassName="active" to="/playlist" className="item">
                 Playlist
-            </Link>
-            <Link to="/favorite" class="item">
+            </NavLink>
+            <NavLink activeClassName="active" to="/favorite" className="item">
                 Favorites
-            </Link>
+            </NavLink>
         </nav>
     );
 };
