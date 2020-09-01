@@ -1,14 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
         <nav class="ui secondary vertical pointing menu">
-            <a class="item">New releases</a>
-            <a class="active item">Artist</a>
-            <a class="item">Track</a>
-            <a class="item">Album</a>
-            <a class="item">Playlist</a>
-            <a class="item">Favorites</a>
+            <Link to="/" class="item">
+                New releases
+            </Link>
+            <Link to="/artist" class="active item">
+                Artist
+            </Link>
+            <Link to="/track" class="item">
+                Track
+            </Link>
+            <Link to="/album" class="item">
+                Album
+            </Link>
+            <Link to="/playlist" class="item">
+                Playlist
+            </Link>
+            <Link to="/favorite" class="item">
+                Favorites
+            </Link>
         </nav>
     );
 };
