@@ -2,18 +2,16 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import token from "./token";
 
-const useFetch = (url) => {
+const useFetch = (url, route) => {
     const [status, setStatus] = useState("");
     const [fetchedData, setData] = useState([]);
     const [error, setError] = useState(null);
-    const [accessToken, setToken] = useState("");
 
     useEffect(() => {
-        setStatus("loading");
         token.getToken().then((data) => {
             fetchData(data);
         });
-    }, [url]);
+    }, []);
 
     const fetchData = (data) => {
         axios
@@ -23,14 +21,21 @@ const useFetch = (url) => {
                 },
             })
             .then((response) => {
-                setData(response.data);
-                setStatus("loaded");
+                setData(getObjectRoute(response));
             })
             .catch((error) => {
                 console.log(error.response.status);
-                setStatus("error");
                 setError(error.response.data);
             });
+    };
+
+    const getObjectRoute = (response) => {
+        switch (route) {
+            case "release":
+                return response.data.albums.items;
+            default:
+                return "error";
+        }
     };
 
     return [status, error, fetchedData];
