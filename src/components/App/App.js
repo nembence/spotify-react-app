@@ -23,16 +23,16 @@ function App() {
                         <Favorite />
                     </Route>
                     <Route path="/artist">
-                        <Category name={"artist"} />
+                        <Category categoryType={"artist"} />
                     </Route>
                     <Route path="/album">
-                        <Category name={"album"} />
+                        <Category categoryType={"album"} />
                     </Route>
                     <Route path="/track">
-                        <Category name={"track"} />
+                        <Category categoryType={"track"} />
                     </Route>
                     <Route path="/playlist">
-                        <Category name={"playlist"} />
+                        <Category categoryType={"playlist"} />
                     </Route>
                 </Switch>
 

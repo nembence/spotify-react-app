@@ -1,5 +1,5 @@
 import React from "react";
-import url from "../../utilities/url";
+import { url } from "../../utilities/url";
 import useFetch from "../../utilities/useFetch";
 import CardItem from "../CardItem/CardItem";
 import Loading from "../Loading/Loading";
@@ -8,8 +8,6 @@ import Error from "../Error/Error";
 
 const Home = () => {
     const [status, error, fetchedData] = useFetch(url.new_releases, "release");
-
-    console.log(fetchedData);
 
     return (
         <div>
