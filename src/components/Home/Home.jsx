@@ -3,7 +3,7 @@ import url from "../../utilities/url";
 import useFetch from "../../utilities/useFetch";
 import CardItem from "../CardItem/CardItem";
 import Loading from "../Loading/Loading";
-import CardContainer from "../CardContainer/CardContainer";
+import { Header, Divider } from "semantic-ui-react";
 import Error from "../Error/Error";
 
 const Home = () => {
@@ -13,21 +13,40 @@ const Home = () => {
 
     const renderedCards = fetchedData.map((data) => (
         <CardItem
-            artist={data.artist}
             img={data.images[0].url}
-            title={data.name}
+            imageUrl={data.external_urls.spotify}
+            header={data.artists[0].name}
+            headerUrl={data.artists[0].external_urls.spotify}
+            footer={data.name}
         />
     ));
+
+    const headerStyle = {
+        marginBottom: "20px",
+    };
+
+    const dividerStlye = {
+        maxWidth: "940px",
+    };
 
     return (
         <div className="content ">
             {status === "error" && <Error error={error} />}
             {status === "loading" && <Loading />}
             {status === "loaded" && (
-                <div className="ui stackable three column grid">
-                    {renderedCards}
+                <div>
+                    <Header style={headerStyle} as="h1">
+                        New releases:
+                    </Header>
+                    <Divider style={dividerStlye} horizontal>
+                        ALBUMS
+                    </Divider>
+                    <div className="ui stackable three column grid">
+                        {renderedCards}
+                    </div>
                 </div>
-        <div>
+            )}
+        </div>
     );
 };
 
