@@ -17,9 +17,9 @@ const Navbar = () => {
             <NavLink activeClassName="active" to="/favorite" className="item">
                 Favorites
             </NavLink>
-            <div class="item">
+            <div className="item">
                 <p>Search by:</p>
-                <div class="menu">
+                <div className="menu">
                     <NavLink
                         activeClassName="active"
                         to="/artist"
