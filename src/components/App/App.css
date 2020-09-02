@@ -1,0 +1,31 @@
+body {
+    margin: 40px;
+}
+
+#sidebar {
+    grid-area: sidebar;
+}
+
+.content {
+    grid-area: content;
+}
+
+header {
+    grid-area: header;
+}
+
+footer {
+    grid-area: footer;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: 250px 120px 120px;
+    grid-template-areas:
+        "header header header"
+        "sidebar content content"
+        "footer  footer  footer";
+    background-color: #fff;
+    color: #444;
+}
