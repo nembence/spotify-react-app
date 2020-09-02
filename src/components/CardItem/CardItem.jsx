@@ -6,15 +6,15 @@ const cardStyle = {
     maxWidth: "300px",
 };
 
-const CardItem = ({ img, artist, title }) => {
+const CardItem = ({ img, header, footer }) => {
     return (
-        <Card style={cardStyle} className="column">
-            <Image src={img} wrapped ui={false} />
-            <Card.Content>
-                <Card.Header>{artist}</Card.Header>
-                <Card.Description>{title}</Card.Description>
-            </Card.Content>
-        </Card>
+            <Card style={cardStyle} className="column">
+                <Image src={img} wrapped ui={false} />
+                <Card.Content>
+                    <Card.Header>{header}</Card.Header>
+                    <Card.Description>{footer}</Card.Description>
+                </Card.Content>
+            </Card>
     );
 };
 
