@@ -1,18 +1,14 @@
 import React from "react";
-import { Card, Icon, Image } from "semantic-ui-react";
+import { Card, Image } from "semantic-ui-react";
 
-const CardItem = () => {
+const CardItem = ({ img, artist, title }) => {
     return (
         <li>
             <Card>
-                <Image
-                    src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
-                    wrapped
-                    ui={false}
-                />
+                <Image src={img} wrapped ui={false} />
                 <Card.Content>
-                    <Card.Header>nthng</Card.Header>
-                    <Card.Description>Artist</Card.Description>
+                    <Card.Header>{artist}</Card.Header>
+                    <Card.Description>{title}</Card.Description>
                 </Card.Content>
             </Card>
         </li>
