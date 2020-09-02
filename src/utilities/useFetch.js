@@ -6,15 +6,20 @@ const useFetch = (url) => {
     const [status, setStatus] = useState("");
     const [fetchedData, setData] = useState([]);
     const [error, setError] = useState(null);
+    const [accessToken, setToken] = useState("");
 
     useEffect(() => {
         setStatus("loading");
-        const accessToken = token.getToken();
-        console.log(accessToken);
+        token.getToken().then((data) => {
+            fetchData(data);
+        });
+    }, [url]);
+
+    const fetchData = (data) => {
         axios
             .get(url, {
                 headers: {
-                    Authorization: "Bearer " + accessToken,
+                    Authorization: "Bearer " + data,
                 },
             })
             .then((response) => {
@@ -26,7 +31,7 @@ const useFetch = (url) => {
                 setStatus("error");
                 setError(error.response.data);
             });
-    }, [url]);
+    };
 
     return [status, error, fetchedData];
 };
