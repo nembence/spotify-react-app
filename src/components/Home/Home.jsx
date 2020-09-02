@@ -18,9 +18,9 @@ const Home = () => {
                 <CardContainer>
                     {fetchedData.map((data) => (
                         <CardItem
-                            artist={data.artist}
                             img={data.images[0].url}
-                            title={data.name}
+                            header={data.artist}
+                            footer={data.name}
                         />
                     ))}
                 </CardContainer>
