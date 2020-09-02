@@ -4,6 +4,7 @@ import useFetch from "../../utilities/useFetch";
 import CardItem from "../CardItem/CardItem";
 import Loading from "../Loading/Loading";
 import CardContainer from "../CardContainer/CardContainer";
+import Error from "../Error/Error";
 
 const Home = () => {
     const [status, error, fetchedData] = useFetch(url.new_releases, "release");
@@ -12,7 +13,7 @@ const Home = () => {
 
     return (
         <div>
-            {/* {status === "error" && <Error message={error} />}*/}
+            {status === "error" && <Error error={error} />}
             {status === "loading" && <Loading />}
             {status === "loaded" && (
                 <CardContainer>

@@ -5,7 +5,7 @@ import token from "./token";
 const useFetch = (url, route) => {
     const [status, setStatus] = useState("");
     const [fetchedData, setData] = useState([]);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState({});
 
     useEffect(() => {
         setStatus("loading");
@@ -28,7 +28,7 @@ const useFetch = (url, route) => {
             .catch((error) => {
                 setStatus("error");
                 console.log(error.response.status);
-                setError(error.response.data);
+                setError(error.response);
             });
     };
 
