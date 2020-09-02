@@ -19,7 +19,7 @@ const Home = () => {
                     {fetchedData.map((data) => (
                         <CardItem
                             img={data.images[0].url}
-                            header={data.artist}
+                            header={data.artists[0].name}
                             footer={data.name}
                         />
                     ))}
