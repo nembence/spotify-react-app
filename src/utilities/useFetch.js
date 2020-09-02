@@ -8,6 +8,7 @@ const useFetch = (url, route) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        setStatus("loading");
         token.getToken().then((data) => {
             fetchData(data);
         });
@@ -21,9 +22,11 @@ const useFetch = (url, route) => {
                 },
             })
             .then((response) => {
+                setStatus("loaded");
                 setData(getObjectRoute(response));
             })
             .catch((error) => {
+                setStatus("error");
                 console.log(error.response.status);
                 setError(error.response.data);
             });
