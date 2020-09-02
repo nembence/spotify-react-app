@@ -10,20 +10,22 @@ const Home = () => {
 
     console.log(fetchedData);
 
+    const renderedCards = fetchedData.map((data) => (
+        <CardItem
+            artist={data.artist}
+            img={data.images[0].url}
+            title={data.name}
+        />
+    ));
+
     return (
-        <div>
+        <div className="content ">
             {/* {status === "error" && <Error message={error} />}*/}
             {status === "loading" && <Loading />}
             {status === "loaded" && (
-                <CardContainer>
-                    {fetchedData.map((data) => (
-                        <CardItem
-                            artist={data.artist}
-                            img={data.images[0].url}
-                            title={data.name}
-                        />
-                    ))}
-                </CardContainer>
+                <div className="ui stackable three column grid">
+                    {renderedCards}
+                </div>
             )}
         </div>
     );
