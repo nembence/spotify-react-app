@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <div id="sidebar" class="ui secondary vertical pointing menu">
+        <div className="ui secondary vertical pointing menu">
             <NavLink activeClassName="active" exact to="/" className="item">
                 New releases
             </NavLink>
