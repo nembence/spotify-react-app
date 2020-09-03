@@ -3,7 +3,7 @@ import useFetch from "../../utilities/useFetch";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
 import ArtistCard from "../Cards/ArtistCard/ArtistCard";
-import AlbumCard from "../Cards/AbumCard/AlbumCard";
+import AlbumCard from "../Cards/AlbumCard/AlbumCard";
 import PlaylistCard from "../Cards/PlaylistCard/PlaylistCard";
 import TrackCard from "../Cards/TrackCard/TrackCard";
 import { Divider } from "semantic-ui-react";
@@ -14,8 +14,6 @@ const SearchHandler = ({ urlString, categoryType }) => {
     const dividerStlye = {
         maxWidth: "940px"
     };
-
-    console.log(fetchedData);
 
     const renderedCard = data => {
         switch (categoryType) {

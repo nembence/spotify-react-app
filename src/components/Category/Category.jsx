@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Input } from "semantic-ui-react";
 import url from "../../utilities/url";
 import { Header } from "semantic-ui-react";
-import SearchHandler from "./SearchHandler";
+import SearchHandler from "../SearchHandler/SearchHandler";
 
 const Category = ({ categoryType }) => {
     const [search, setSearch] = useState(false);

@@ -37,8 +37,6 @@ const Favorite = () => {
 
     const renderedAlbums = renderCards("albums", album);
 
-    console.log(renderedAlbums);
-
     const renderedPlaylist = renderCards("playlist", playlist);
 
     return (

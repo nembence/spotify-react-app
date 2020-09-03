@@ -27,7 +27,6 @@ const useFetch = (url, route) => {
             })
             .catch(error => {
                 setStatus("error");
-                console.log(error.response.status);
                 setError(error.response);
             });
     };
