@@ -3,7 +3,7 @@ import useFetch from "../../utilities/useFetch";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
 import ArtistCard from "../Cards/ArtistCard/ArtistCard";
-import AlbumCard from "../Cards/AbumCard/AlbumCard";
+import AlbumCard from "../Cards/AlbumCard/AlbumCard";
 import PlaylistCard from "../Cards/PlaylistCard/PlaylistCard";
 import TrackCard from "../Cards/TrackCard/TrackCard";
 import { Divider } from "semantic-ui-react";
@@ -12,12 +12,12 @@ const SearchHandler = ({ urlString, categoryType }) => {
     const [status, error, fetchedData] = useFetch(urlString, categoryType);
 
     const dividerStlye = {
-        maxWidth: "940px"
+        maxWidth: "940px",
     };
 
     console.log(fetchedData);
 
-    const renderedCard = data => {
+    const renderedCard = (data) => {
         switch (categoryType) {
             case "artist":
                 return <ArtistCard data={data} />;
@@ -41,8 +41,8 @@ const SearchHandler = ({ urlString, categoryType }) => {
                     <Divider style={dividerStlye} horizontal>
                         {categoryType}
                     </Divider>
-                    <div className='ui stackable three column grid'>
-                        {fetchedData.map(data => renderedCard(data))}
+                    <div className="ui stackable three column grid">
+                        {fetchedData.map((data) => renderedCard(data))}
                     </div>
                 </div>
             )}
