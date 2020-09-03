@@ -36,6 +36,14 @@ const useFetch = (url, route) => {
         switch (route) {
             case "release":
                 return response.data.albums.items;
+            case "artist":
+                return response.data.artists.items;
+            case "track":
+                return response.data.tracks.items;
+            case "playlist":
+                return response.data.playlists.items;
+            case "album":
+                return response.data.albums.items;
             default:
                 return "error";
         }

@@ -60,6 +60,7 @@ const CardItem = ({ category, img, imageUrl, header, headerUrl, footer }) => {
         <Card style={cardStyle} className='column'>
             <Image
                 src={img}
+                alt=""
                 wrapped
                 as='a'
                 ui={false}
@@ -68,7 +69,6 @@ const CardItem = ({ category, img, imageUrl, header, headerUrl, footer }) => {
             />
             <Card.Content>
                 <Card.Header>{footer}</Card.Header>
-
                 <Card.Description as='a' href={headerUrl} target='_blank'>
                     {header}
                 </Card.Description>
