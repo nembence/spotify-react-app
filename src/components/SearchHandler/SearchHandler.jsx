@@ -11,7 +11,7 @@ import { Divider } from "semantic-ui-react";
 const SearchHandler = ({ urlString, categoryType }) => {
     const [status, error, fetchedData] = useFetch(urlString, categoryType);
 
-    const dividerStlye = {
+    const dividerStyle = {
         maxWidth: "940px"
     };
 
@@ -36,7 +36,7 @@ const SearchHandler = ({ urlString, categoryType }) => {
             {status === "loading" && <Loading />}
             {status === "loaded" && (
                 <div>
-                    <Divider style={dividerStlye} horizontal>
+                    <Divider style={dividerStyle} horizontal>
                         {categoryType}
                     </Divider>
                     <div className='ui stackable three column grid'>
