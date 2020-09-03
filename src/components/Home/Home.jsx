@@ -9,20 +9,24 @@ import Error from "../Error/Error";
 const Home = () => {
     const [status, error, fetchedData] = useFetch(url.new_releases, "release");
 
+    console.log(fetchedData);
+
+    const renderedCards = fetchedData.map((data) => (
+        <CardItem
+            artist={data.artist}
+            img={data.images[0].url}
+            title={data.name}
+        />
+    ));
+
     return (
-        <div>
+        <div className="content ">
             {status === "error" && <Error error={error} />}
             {status === "loading" && <Loading />}
             {status === "loaded" && (
-                <CardContainer>
-                    {fetchedData.map((data) => (
-                        <CardItem
-                            img={data.images[0].url}
-                            header={data.artists[0].name}
-                            footer={data.name}
-                        />
-                    ))}
-                </CardContainer>
+                <div className="ui stackable three column grid">
+                    {renderedCards}
+                </div>
             )}
         </div>
     );

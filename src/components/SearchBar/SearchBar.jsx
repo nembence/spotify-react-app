@@ -3,8 +3,12 @@ import React from "react";
 const SearchBar = ({ name }) => {
     const placeholder = `Search ${name}...`;
 
+    const searchBarStyle = {
+        fontSize: "25px",
+    };
+
     return (
-        <div className="ui category search">
+        <div style={searchBarStyle} className="ui category search">
             <div className="ui icon input">
                 <input
                     className="prompt"
