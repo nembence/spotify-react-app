@@ -15,8 +15,6 @@ const SearchHandler = ({ urlString, categoryType }) => {
         maxWidth: "940px",
     };
 
-    console.log(fetchedData);
-
     const renderedCard = (data) => {
         switch (categoryType) {
             case "artist":
