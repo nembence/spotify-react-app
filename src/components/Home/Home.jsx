@@ -9,8 +9,6 @@ import Error from "../Error/Error";
 const Home = () => {
     const [status, error, fetchedData] = useFetch(url.new_releases, "release");
 
-    console.log(fetchedData);
-
     const renderedCards = fetchedData.map((data) => (
         <CardItem
             img={data.images[0].url}
