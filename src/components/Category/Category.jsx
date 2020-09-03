@@ -1,64 +1,44 @@
-import React from "react";
-import SearchBar from "../SearchBar/SearchBar";
+import React, { useState, useEffect } from "react";
+import { Search } from "semantic-ui-react";
 import url from "../../utilities/url";
-import useFetch from "../../utilities/useFetch";
-import Loading from "../Loading/Loading";
-import Error from "../Error/Error";
-import ArtistCard from "../Cards/ArtistCard/ArtistCard";
-import AlbumCard from "../Cards/AbumCard/AlbumCard";
-import PlaylistCard from "../Cards/PlaylistCard/PlaylistCard";
-import TrackCard from "../Cards/TrackCard/TrackCard";
-import { Header, Divider } from "semantic-ui-react";
+import { Header } from "semantic-ui-react";
+import SearchHandler from "./SearchHandler";
 
 const Category = ({ categoryType }) => {
-    const searchString = "Muse";
-    const urlString = url.search + searchString + "&type=" + categoryType;
+    const [search, setSearch] = useState(false);
+    const [urlString, setUrl] = useState("");
 
-    const [status, error, fetchedData] = useFetch(urlString, categoryType);
+    const headerStyle = {
+        marginBottom: "20px"
+    };
 
-    console.log(fetchedData);
+    useEffect(() => {
+        setSearch(false);
+    }, []);
 
-    const renderedCard = (data) => {
-        switch (categoryType) {
-            case "artist":
-                return <ArtistCard data={data} />;
-            case "album":
-                return <AlbumCard data={data} />;
-            case "playlist":
-                return <PlaylistCard data={data} />;
-            case "track":
-                return <TrackCard data={data} />;
-            default:
-                return <></>;
+    const handleChange = event => {
+        const searchString = event.target.value;
+        if (searchString !== "") {
+            setUrl(url.search + searchString + "&type=" + categoryType);
+            setSearch(true);
         }
     };
 
-    const headerStyle = {
-        marginBottom: "20px",
-    };
-
-    const dividerStlye = {
-        maxWidth: "940px",
-    };
-
     return (
-        <div className="content">
-            <SearchBar name={categoryType} />
-
-            {status === "error" && <Error error={error} />}
-            {status === "loading" && <Loading />}
-            {status === "loaded" && (
-                <div>
-                    <Header style={headerStyle} as="h1">
-                        Find your favorite {categoryType}
-                    </Header>
-                    <Divider style={dividerStlye} horizontal>
-                        {categoryType}
-                    </Divider>
-                    <div className="ui stackable three column grid">
-                        {fetchedData.map((data) => renderedCard(data))}
-                    </div>
-                </div>
+        <div className='content'>
+            <Search
+                onSearchChange={handleChange}
+                category={false}
+                name={categoryType}
+            />
+            <Header style={headerStyle} as='h1'>
+                Find your favorite {categoryType}
+            </Header>
+            {search === true && (
+                <SearchHandler
+                    urlString={urlString}
+                    categoryType={categoryType}
+                />
             )}
         </div>
     );
