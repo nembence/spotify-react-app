@@ -13,8 +13,8 @@ function App() {
     return (
         <FavouriteProvider>
             <Router>
+                <Header />
                 <div className='wrapper'>
-                    <Header />
                     <Navbar />
                     <Switch>
                         <Route exact path='/'>
@@ -36,8 +36,6 @@ function App() {
                             <Category categoryType={"playlist"} />
                         </Route>
                     </Switch>
-
-                    <Footer />
                 </div>
             </Router>
         </FavouriteProvider>
