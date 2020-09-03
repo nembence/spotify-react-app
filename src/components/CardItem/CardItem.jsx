@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Card, Image, Icon } from "semantic-ui-react";
+import React from "react";
+import { Card, Image } from "semantic-ui-react";
 import FavoriteStar from "../FavoriteStar/FavoriteStar";
 
 const cardStyle = {
