@@ -9,30 +9,30 @@ const useFetch = (url, route) => {
 
     useEffect(() => {
         setStatus("loading");
-        token.getToken().then((data) => {
+        token.getToken().then(data => {
             fetchData(data);
         });
-    }, []);
+    }, [url]);
 
-    const fetchData = (data) => {
+    const fetchData = data => {
         axios
             .get(url, {
                 headers: {
-                    Authorization: "Bearer " + data,
-                },
+                    Authorization: "Bearer " + data
+                }
             })
-            .then((response) => {
+            .then(response => {
                 setStatus("loaded");
                 setData(getObjectRoute(response));
             })
-            .catch((error) => {
+            .catch(error => {
                 setStatus("error");
                 console.log(error.response.status);
                 setError(error.response);
             });
     };
 
-    const getObjectRoute = (response) => {
+    const getObjectRoute = response => {
         switch (route) {
             case "release":
                 return response.data.albums.items;
