@@ -12,6 +12,7 @@ const useFetch = (url, route) => {
         token.getToken().then(data => {
             fetchData(data);
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [url]);
 
     const fetchData = data => {
