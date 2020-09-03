@@ -1,4 +1,5 @@
 import React from "react";
+import url from "../../../utilities/url";
 import { Card, Image } from "semantic-ui-react";
 import url from "../../../utilities/url";
 import FavoriteStar from "../../FavoriteStar/FavoriteStar";
