@@ -4,33 +4,33 @@ import FavoriteStar from "../../FavoriteStar/FavoriteStar";
 
 const cardStyle = {
     margin: "10px",
-    maxWidth: "300px"
+    maxWidth: "300px",
 };
 
 const AlbumCard = ({ data }) => {
     return (
-        <Card style={cardStyle} className='column'>
+        <Card key={data.id} style={cardStyle} className="column">
             <Image
                 src={data.images[0].url}
-                alt=''
+                alt=""
                 wrapped
-                as='a'
+                as="a"
                 ui={false}
                 href={data.external_urls.spotify}
-                target='_blank'
+                target="_blank"
             />
             <Card.Content>
                 <Card.Header>{data.artists[0].name}</Card.Header>
                 <Card.Description
-                    as='a'
+                    as="a"
                     href={data.external_urls.spotify}
-                    target='_blank'
+                    target="_blank"
                 >
                     {data.name}
                 </Card.Description>
             </Card.Content>
             <FavoriteStar
-                category='album'
+                category="album"
                 img={data.images[0].url}
                 imgUrl={data.external_urls.spotify}
                 header={data.artists[0].name}
