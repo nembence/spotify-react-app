@@ -2,12 +2,13 @@ import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import CardContainer from "../CardContainer/CardContainer";
 import CardItem from "../CardItem/CardItem";
-import { url, urlHandler } from "../../utilities/url";
-import useFetch from "../../utilities/useFetch";
+import url from "../../utilities/url";
 
 const Category = ({ categoryType }) => {
     const searchString = "Muse";
     const urlString = url.search + searchString + "&type=" + categoryType;
+
+    console.log(urlString);
 
     return (
         <div className="content">
