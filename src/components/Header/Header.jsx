@@ -2,16 +2,18 @@ import React from "react";
 
 const Header = () => {
     const headerStyle = {
-        backgroundColor: "#E18A07",
+        backgroundColor: "black",
         position: "absolute",
         top: "0",
         left: "0",
-        height: "70px",
+        height: "80px",
         width: "100%"
     };
 
     const headerName = {
         fontSize: "55px",
+        textDecoration: "underline",
+        textDecorationColor: "rgb(85,182,96)",
         fontWeight: "bolder",
         position: "absolute",
         left: "20px",
