@@ -1,44 +1,43 @@
 import React from "react";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import Home from "../Home/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Favorite from "../Favorite/Favorite";
 import Category from "../Category/Category";
 import "./App.css";
+import { FavouriteProvider } from "../../context/FavouriteContext";
 
 function App() {
     return (
-        <Router>
-            <div className="wrapper">
+        <FavouriteProvider>
+            <Router>
                 <Header />
-                <Navbar />
-
-                <Switch>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route path="/favorite">
-                        <Favorite />
-                    </Route>
-                    <Route path="/artist">
-                        <Category name={"artist"} />
-                    </Route>
-                    <Route path="/album">
-                        <Category name={"album"} />
-                    </Route>
-                    <Route path="/track">
-                        <Category name={"track"} />
-                    </Route>
-                    <Route path="/playlist">
-                        <Category name={"playlist"} />
-                    </Route>
-                </Switch>
-
-                <Footer />
-            </div>
-        </Router>
+                <div className='wrapper'>
+                    <Navbar />
+                    <Switch>
+                        <Route exact path='/'>
+                            <Home />
+                        </Route>
+                        <Route path='/favorite'>
+                            <Favorite />
+                        </Route>
+                        <Route path='/artist'>
+                            <Category categoryType={"artist"} />
+                        </Route>
+                        <Route path='/album'>
+                            <Category categoryType={"album"} />
+                        </Route>
+                        <Route path='/track'>
+                            <Category categoryType={"track"} />
+                        </Route>
+                        <Route path='/playlist'>
+                            <Category categoryType={"playlist"} />
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
+        </FavouriteProvider>
     );
 }
 

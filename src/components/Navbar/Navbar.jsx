@@ -1,18 +1,25 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+const navbarStyle = {
+    fontSize: "25px",
+};
+
 const Navbar = () => {
     return (
-        <div id="sidebar" class="ui secondary vertical pointing menu">
+        <div
+            style={navbarStyle}
+            className="ui secondary vertical pointing menu"
+        >
             <NavLink activeClassName="active" exact to="/" className="item">
                 New releases
             </NavLink>
             <NavLink activeClassName="active" to="/favorite" className="item">
                 Favorites
             </NavLink>
-            <div class="item">
+            <div className="item">
                 <p>Search by:</p>
-                <div class="menu">
+                <div className="menu">
                     <NavLink
                         activeClassName="active"
                         to="/artist"

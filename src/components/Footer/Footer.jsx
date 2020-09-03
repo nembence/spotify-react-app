@@ -1,10 +1,16 @@
 import React from "react";
 
 const Footer = () => {
+    const footerName = {
+        fontSize: "20px",
+        fontWeight: "bolder",
+        color: "white"
+    };
+
     return (
-        <footer>
-            <p>2020 - Club Mates</p>
-        </footer>
+        <div className='footer'>
+            <p style={footerName}>2020 - Club Mates</p>
+        </div>
     );
 };
 
